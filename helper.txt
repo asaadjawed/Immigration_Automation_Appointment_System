@@ -1,0 +1,15 @@
+alembic revision --autogenerate -m "Initial migration - create all tables" //for migration  
+
+
+alembic upgrade head ///run migration
+
+
+# Create a virtual environment (isolated Python environment)
+python -m venv venv
+
+# Activate it
+# On Windows:
+venv\Scripts\activate
+# On Mac/Linux:
+source venv/bin/activate
+```
