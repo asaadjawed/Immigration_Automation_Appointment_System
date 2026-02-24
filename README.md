@@ -48,51 +48,6 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-4. Set up environment variables:
-Create a `.env` file in the root directory:
-```env
-# Database
-DATABASE_URL=postgresql://postgres:postgres@localhost:5432/immigration_db
-
-# Email Configuration (IMAP)
-EMAIL_HOST=imap.gmail.com
-EMAIL_PORT=993
-EMAIL_USER=your_email@gmail.com
-EMAIL_PASSWORD=your_app_password
-EMAIL_USE_SSL=True
-
-# Email Configuration (SMTP)
-SMTP_HOST=smtp.gmail.com
-SMTP_PORT=587
-SMTP_USER=your_email@gmail.com
-SMTP_PASSWORD=your_app_password
-SMTP_USE_TLS=True
-EMAIL_FROM=your_email@gmail.com
-
-# LLM Configuration
-GEMINI_OPEN_KEY=your_gemini_api_key
-LLM_PROVIDER=gemini
-LLM_MODEL=gemini-2.5-flash
-LLM_TEMPERATURE=0.3
-
-# Vector Database
-VECTOR_DB_PATH=./vector_db
-EMBEDDING_MODEL=sentence-transformers/all-MiniLM-L6-v2
-
-# Celery
-CELERY_BROKER_URL=redis://localhost:6379/0
-CELERY_RESULT_BACKEND=redis://localhost:6379/0
-
-# Application
-APP_NAME=Immigration Office Automation
-DEBUG=True
-LOG_LEVEL=INFO
-
-# File Storage
-UPLOAD_DIR=./uploads
-GUIDELINES_DIR=./guidelines
-```
-
 5. Set up the database:
 ```bash
 # Run migrations
@@ -120,9 +75,6 @@ celery -A app.celery_app worker --loglevel=info
 ```bash
 uvicorn app.main:app --reload
 ```
-
-The API will be available at `http://localhost:8000`
-API documentation: `http://localhost:8000/docs`
 
 ## Project Structure
 
